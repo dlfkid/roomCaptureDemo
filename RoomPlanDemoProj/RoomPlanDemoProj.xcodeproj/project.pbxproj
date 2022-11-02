@@ -15,6 +15,8 @@
 		FE742D692911205400FCD91E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE742D682911205400FCD91E /* Assets.xcassets */; };
 		FE742D6C2911205400FCD91E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE742D6A2911205400FCD91E /* LaunchScreen.storyboard */; };
 		FE742D6F2911205400FCD91E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FE742D6E2911205400FCD91E /* main.m */; };
+		FE742D7729121C4F00FCD91E /* BasicRoomPlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE742D7629121C4F00FCD91E /* BasicRoomPlanViewController.m */; };
+		FE742D7A29121C5900FCD91E /* CustomRoomPlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE742D7929121C5900FCD91E /* CustomRoomPlanViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,10 @@
 		FE742D6B2911205400FCD91E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FE742D6D2911205400FCD91E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE742D6E2911205400FCD91E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FE742D7529121C4F00FCD91E /* BasicRoomPlanViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BasicRoomPlanViewController.h; sourceTree = "<group>"; };
+		FE742D7629121C4F00FCD91E /* BasicRoomPlanViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BasicRoomPlanViewController.m; sourceTree = "<group>"; };
+		FE742D7829121C5900FCD91E /* CustomRoomPlanViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomRoomPlanViewController.h; sourceTree = "<group>"; };
+		FE742D7929121C5900FCD91E /* CustomRoomPlanViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomRoomPlanViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +59,6 @@
 				D20D89EBFA42064CA2873418 /* Pods-RoomPlanDemoProj.debug.xcconfig */,
 				63234C8B7FAB7F20CD7904D1 /* Pods-RoomPlanDemoProj.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -92,6 +97,10 @@
 				FE742D602911205100FCD91E /* SceneDelegate.m */,
 				FE742D622911205100FCD91E /* ViewController.h */,
 				FE742D632911205100FCD91E /* ViewController.m */,
+				FE742D7529121C4F00FCD91E /* BasicRoomPlanViewController.h */,
+				FE742D7629121C4F00FCD91E /* BasicRoomPlanViewController.m */,
+				FE742D7829121C5900FCD91E /* CustomRoomPlanViewController.h */,
+				FE742D7929121C5900FCD91E /* CustomRoomPlanViewController.m */,
 				FE742D652911205100FCD91E /* Main.storyboard */,
 				FE742D682911205400FCD91E /* Assets.xcassets */,
 				FE742D6A2911205400FCD91E /* LaunchScreen.storyboard */,
@@ -112,6 +121,7 @@
 				FE742D552911205100FCD91E /* Sources */,
 				FE742D562911205100FCD91E /* Frameworks */,
 				FE742D572911205100FCD91E /* Resources */,
+				122A6014014F8E330457ECF9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -168,6 +178,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		122A6014014F8E330457ECF9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RoomPlanDemoProj/Pods-RoomPlanDemoProj-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RoomPlanDemoProj/Pods-RoomPlanDemoProj-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RoomPlanDemoProj/Pods-RoomPlanDemoProj-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		23A03DC2DBDA504BA2FEE9F8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -198,9 +225,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE742D642911205100FCD91E /* ViewController.m in Sources */,
+				FE742D7A29121C5900FCD91E /* CustomRoomPlanViewController.m in Sources */,
 				FE742D5E2911205100FCD91E /* AppDelegate.m in Sources */,
 				FE742D6F2911205400FCD91E /* main.m in Sources */,
 				FE742D612911205100FCD91E /* SceneDelegate.m in Sources */,
+				FE742D7729121C4F00FCD91E /* BasicRoomPlanViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,3 +1,22 @@
-PODFILE CHECKSUM: 2d26d5935fd8280ca3433536f9d5aa0cb53d6392
+PODS:
+  - Masonry (1.1.0)
+
+DEPENDENCIES:
+  - Masonry (from `https://github.com/SnapKit/Masonry.git`, tag `v1.1.0`)
+
+EXTERNAL SOURCES:
+  Masonry:
+    :git: https://github.com/SnapKit/Masonry.git
+    :tag: v1.1.0
+
+CHECKOUT OPTIONS:
+  Masonry:
+    :git: https://github.com/SnapKit/Masonry.git
+    :tag: v1.1.0
+
+SPEC CHECKSUMS:
+  Masonry: 890751a1008d6f33a97b032f4ecad4870d7eed3a
+
+PODFILE CHECKSUM: 25dcd19fcbe11df8c338eeecc8ea4edf8e930cb0
 
 COCOAPODS: 1.11.3
