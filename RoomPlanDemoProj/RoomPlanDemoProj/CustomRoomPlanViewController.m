@@ -6,8 +6,11 @@
 //
 
 #import "CustomRoomPlanViewController.h"
+#import <Masonry/Masonry.h>
 
 @interface CustomRoomPlanViewController ()
+
+@property (nonatomic, strong) UIButton *closeButton;
 
 @end
 
@@ -15,17 +18,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.title = @"Custom Room Plan";
+    self.view.backgroundColor = [UIColor whiteColor];
+    
+    self.closeButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    [self.closeButton setTitle:@"close" forState:UIControlStateNormal];
+    [self.closeButton addTarget:self action:@selector(closeButtonDidTappedAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.closeButton];
+    
+    [self.closeButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(self.view.mas_safeAreaLayoutGuideTop).mas_offset(16);
+        make.left.mas_equalTo(16);
+    }];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)closeButtonDidTappedAction:(UIButton *)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
-*/
 
 @end

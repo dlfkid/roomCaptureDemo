@@ -16,7 +16,7 @@
 
 @property (nonatomic, strong) UITextView *descriptionTextView;
 
-@property (nonatomic, strong) UIButton *baseicRPButton;
+@property (nonatomic, strong) UIButton *basicRPButton;
 
 @property (nonatomic, strong) UIButton *customRPButton;
 
@@ -38,12 +38,14 @@
     [self.descriptionTextView sizeToFit];
     [self.view addSubview:self.descriptionTextView];
     
-    self.baseicRPButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    [self.baseicRPButton setTitle:@"BasicRoomPlanUsage" forState:UIControlStateNormal];
-    [self.view addSubview:self.baseicRPButton];
+    self.basicRPButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    [self.basicRPButton setTitle:@"BasicRoomPlanUsage" forState:UIControlStateNormal];
+    [self.basicRPButton addTarget:self action:@selector(basicRPButtonDidTappedButton:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.basicRPButton];
     
     self.customRPButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [self.customRPButton setTitle:@"customRoomPlanUsage" forState:UIControlStateNormal];
+    [self.customRPButton addTarget:self action:@selector(customRPButtonDidTappedButton:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.customRPButton];
     
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -58,19 +60,33 @@
         make.height.mas_greaterThanOrEqualTo(100);
     }];
     
-    [self.baseicRPButton mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.basicRPButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.mas_equalTo(self.descriptionTextView.mas_centerX);
         make.top.mas_equalTo(self.descriptionTextView.mas_bottom).mas_offset(30);
     }];
     
     [self.customRPButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.mas_equalTo(self.baseicRPButton.mas_centerX);
-        make.top.mas_equalTo(self.baseicRPButton.mas_bottom).mas_offset(30);
+        make.centerX.mas_equalTo(self.basicRPButton.mas_centerX);
+        make.top.mas_equalTo(self.basicRPButton.mas_bottom).mas_offset(30);
     }];
 }
 
 - (NSString *)roomPlanDescriptionText {
     return @"To scan your room, point your device at all the walls, windows, doors and furniture in your space until your scan is complete. \n You can see a preview of your scan at the bottom of the screen so you can make sure your scan is correct. ";
+}
+
+#pragma mark - Actions
+
+- (void)basicRPButtonDidTappedButton:(UIButton *)sender {
+    BasicRoomPlanViewController *basicRPViewController = [[BasicRoomPlanViewController alloc] init];
+    basicRPViewController.modalPresentationStyle = UIModalPresentationFullScreen;
+    [self presentViewController:basicRPViewController animated:YES completion:nil];
+}
+
+- (void)customRPButtonDidTappedButton:(UIButton *)sender {
+    CustomRoomPlanViewController *customRPViewController = [[CustomRoomPlanViewController alloc] init];
+    customRPViewController.modalPresentationStyle = UIModalPresentationFullScreen;
+    [self presentViewController:customRPViewController animated:YES completion:nil];
 }
 
 @end
