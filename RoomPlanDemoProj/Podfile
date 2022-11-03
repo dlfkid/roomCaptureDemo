@@ -2,9 +2,7 @@
 # platform :ios, '9.0'
 
 target 'RoomPlanDemoProj' do
-  # Comment the next line if you don't want to use dynamic frameworks
-  use_frameworks!
-  pod  'Masonry', :git => 'https://github.com/SnapKit/Masonry.git', :tag => 'v1.1.0'
   # Pods for RoomPlanDemoProj
-
+  use_frameworks!
+  pod 'PinLayout', :git => 'https://github.com/layoutBox/PinLayout.git', :tag => '1.10.3'
 end

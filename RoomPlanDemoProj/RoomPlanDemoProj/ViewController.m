@@ -6,9 +6,8 @@
 //
 
 #import "ViewController.h"
-#import <Masonry/Masonry.h>
-#import "BasicRoomPlanViewController.h"
-#import "CustomRoomPlanViewController.h"
+#import <PinLayout/PinLayout-umbrella.h>
+#import "RoomPlanDemoProj-Swift.h"
 
 @interface ViewController ()
 
@@ -48,27 +47,38 @@
     [self.customRPButton addTarget:self action:@selector(customRPButtonDidTappedButton:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.customRPButton];
     
-    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.mas_equalTo(self.view.mas_centerX);
-        make.top.mas_equalTo(self.view.mas_safeAreaLayoutGuideTop).offset(30);
-    }];
+//    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.centerX.mas_equalTo(self.view.mas_centerX);
+//        make.top.mas_equalTo(self.view.mas_safeAreaLayoutGuideTop).offset(30);
+//    }];
+//
+//    [self.descriptionTextView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.mas_equalTo(self.titleLabel.mas_bottom).offset(30);
+//        make.left.mas_equalTo(16);
+//        make.right.mas_equalTo(-16);
+//        make.height.mas_greaterThanOrEqualTo(100);
+//    }];
+//
+//    [self.basicRPButton mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.centerX.mas_equalTo(self.descriptionTextView.mas_centerX);
+//        make.top.mas_equalTo(self.descriptionTextView.mas_bottom).mas_offset(30);
+//    }];
+//
+//    [self.customRPButton mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.centerX.mas_equalTo(self.basicRPButton.mas_centerX);
+//        make.top.mas_equalTo(self.basicRPButton.mas_bottom).mas_offset(30);
+//    }];
+}
+
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
     
-    [self.descriptionTextView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.titleLabel.mas_bottom).offset(30);
-        make.left.mas_equalTo(16);
-        make.right.mas_equalTo(-16);
-        make.height.mas_greaterThanOrEqualTo(100);
-    }];
+    CGFloat edgeMargin = 20.f;
     
-    [self.basicRPButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.mas_equalTo(self.descriptionTextView.mas_centerX);
-        make.top.mas_equalTo(self.descriptionTextView.mas_bottom).mas_offset(30);
-    }];
-    
-    [self.customRPButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.mas_equalTo(self.basicRPButton.mas_centerX);
-        make.top.mas_equalTo(self.basicRPButton.mas_bottom).mas_offset(30);
-    }];
+    self.titleLabel.pinObjc.topInsets(self.view.safeAreaInsets).marginTop(edgeMargin).hCenter().sizeToFit().layout();
+    self.descriptionTextView.pinObjc.belowOfAligned(self.titleLabel, HorizontalAlignCenter).marginTop(edgeMargin).height(120).widthOf(self.view).layout();
+    self.basicRPButton.pinObjc.belowOfAligned(self.descriptionTextView, HorizontalAlignCenter).marginTop(edgeMargin).sizeToFit().layout();
+    self.customRPButton.pinObjc.belowOfAligned(self.basicRPButton, HorizontalAlignCenter).marginTop(edgeMargin).sizeToFit().layout();
 }
 
 - (NSString *)roomPlanDescriptionText {
@@ -78,15 +88,11 @@
 #pragma mark - Actions
 
 - (void)basicRPButtonDidTappedButton:(UIButton *)sender {
-    BasicRoomPlanViewController *basicRPViewController = [[BasicRoomPlanViewController alloc] init];
-    basicRPViewController.modalPresentationStyle = UIModalPresentationFullScreen;
-    [self presentViewController:basicRPViewController animated:YES completion:nil];
+    [RoomPlanRouter routeToRoomPlanBaseViewControllerWithCurrentController:self];
 }
 
 - (void)customRPButtonDidTappedButton:(UIButton *)sender {
-    CustomRoomPlanViewController *customRPViewController = [[CustomRoomPlanViewController alloc] init];
-    customRPViewController.modalPresentationStyle = UIModalPresentationFullScreen;
-    [self presentViewController:customRPViewController animated:YES completion:nil];
+    [RoomPlanRouter routeToRoomPlanCustomViewControllerWithCurrentController:self];
 }
 
 @end

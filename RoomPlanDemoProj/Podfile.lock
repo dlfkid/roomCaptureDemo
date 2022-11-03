@@ -1,22 +1,22 @@
 PODS:
-  - Masonry (1.1.0)
+  - PinLayout (1.10.3)
 
 DEPENDENCIES:
-  - Masonry (from `https://github.com/SnapKit/Masonry.git`, tag `v1.1.0`)
+  - PinLayout (from `https://github.com/layoutBox/PinLayout.git`, tag `1.10.3`)
 
 EXTERNAL SOURCES:
-  Masonry:
-    :git: https://github.com/SnapKit/Masonry.git
-    :tag: v1.1.0
+  PinLayout:
+    :git: https://github.com/layoutBox/PinLayout.git
+    :tag: 1.10.3
 
 CHECKOUT OPTIONS:
-  Masonry:
-    :git: https://github.com/SnapKit/Masonry.git
-    :tag: v1.1.0
+  PinLayout:
+    :git: https://github.com/layoutBox/PinLayout.git
+    :tag: 1.10.3
 
 SPEC CHECKSUMS:
-  Masonry: 890751a1008d6f33a97b032f4ecad4870d7eed3a
+  PinLayout: 0090ccbf29ae69af6ae5a15eaeaf27ed7b2c4d83
 
-PODFILE CHECKSUM: 25dcd19fcbe11df8c338eeecc8ea4edf8e930cb0
+PODFILE CHECKSUM: 9636757d39b4d6f728aff8d2bb9645f3fa7c7286
 
 COCOAPODS: 1.11.3
