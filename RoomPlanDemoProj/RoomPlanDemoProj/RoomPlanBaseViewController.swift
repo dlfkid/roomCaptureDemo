@@ -49,6 +49,7 @@ class RoomPlanBaseViewController: UIViewController {
         super.viewDidLoad()
         self.title = "Base Room Plan"
         view.backgroundColor = .white
+        view.addSubview(roomCaptureView)
         view.addSubview(closeButton)
         view.addSubview(doneButton)
         view.addSubview(exportButton)
@@ -58,6 +59,8 @@ class RoomPlanBaseViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        
+        roomCaptureView.pin.pinEdges()
         
         closeButton.pin.top(view.safeAreaInsets.top).marginTop(20).left(16).sizeToFit()
         
