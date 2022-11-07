@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		8E68BAE5F8BEECD981219CB6 /* Pods_RoomPlanDemoProj.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 492701F8D6D9CCC0D757012E /* Pods_RoomPlanDemoProj.framework */; };
+		FE0B580E2918ED0700625C80 /* Visualizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0B580D2918ED0700625C80 /* Visualizer.swift */; };
+		FE0B58102919254100625C80 /* RoomPlanResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0B580F2919254100625C80 /* RoomPlanResultViewController.swift */; };
 		FE742D5E2911205100FCD91E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FE742D5D2911205100FCD91E /* AppDelegate.m */; };
 		FE742D612911205100FCD91E /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FE742D602911205100FCD91E /* SceneDelegate.m */; };
 		FE742D642911205100FCD91E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE742D632911205100FCD91E /* ViewController.m */; };
@@ -25,6 +27,8 @@
 		492701F8D6D9CCC0D757012E /* Pods_RoomPlanDemoProj.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoomPlanDemoProj.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		63234C8B7FAB7F20CD7904D1 /* Pods-RoomPlanDemoProj.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoomPlanDemoProj.release.xcconfig"; path = "Target Support Files/Pods-RoomPlanDemoProj/Pods-RoomPlanDemoProj.release.xcconfig"; sourceTree = "<group>"; };
 		D20D89EBFA42064CA2873418 /* Pods-RoomPlanDemoProj.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoomPlanDemoProj.debug.xcconfig"; path = "Target Support Files/Pods-RoomPlanDemoProj/Pods-RoomPlanDemoProj.debug.xcconfig"; sourceTree = "<group>"; };
+		FE0B580D2918ED0700625C80 /* Visualizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Visualizer.swift; sourceTree = "<group>"; };
+		FE0B580F2919254100625C80 /* RoomPlanResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomPlanResultViewController.swift; sourceTree = "<group>"; };
 		FE742D592911205100FCD91E /* RoomPlanDemoProj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoomPlanDemoProj.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE742D5C2911205100FCD91E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FE742D5D2911205100FCD91E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -102,8 +106,10 @@
 				FE742D632911205100FCD91E /* ViewController.m */,
 				FE8DEE242913C8F70050FE43 /* RoomPlanBaseViewController.swift */,
 				FE8DEE282913D66A0050FE43 /* RoomPlanCustomViewController.swift */,
+				FE0B580F2919254100625C80 /* RoomPlanResultViewController.swift */,
 				FE8DEE262913CA980050FE43 /* RoomPlanRouter.swift */,
 				FEB2D3452918AD02008D52CB /* USDZPathHelper.swift */,
+				FE0B580D2918ED0700625C80 /* Visualizer.swift */,
 				FE742D652911205100FCD91E /* Main.storyboard */,
 				FE742D682911205400FCD91E /* Assets.xcassets */,
 				FE742D6A2911205400FCD91E /* LaunchScreen.storyboard */,
@@ -234,7 +240,9 @@
 				FEB2D3462918AD02008D52CB /* USDZPathHelper.swift in Sources */,
 				FE742D6F2911205400FCD91E /* main.m in Sources */,
 				FE8DEE252913C8F70050FE43 /* RoomPlanBaseViewController.swift in Sources */,
+				FE0B580E2918ED0700625C80 /* Visualizer.swift in Sources */,
 				FE8DEE272913CA980050FE43 /* RoomPlanRouter.swift in Sources */,
+				FE0B58102919254100625C80 /* RoomPlanResultViewController.swift in Sources */,
 				FE8DEE292913D66A0050FE43 /* RoomPlanCustomViewController.swift in Sources */,
 				FE742D612911205100FCD91E /* SceneDelegate.m in Sources */,
 			);
