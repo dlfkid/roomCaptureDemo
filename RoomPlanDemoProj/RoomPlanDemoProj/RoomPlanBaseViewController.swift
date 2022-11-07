@@ -38,6 +38,7 @@ class RoomPlanBaseViewController: UIViewController {
         button.setTitle("Export", for: .normal)
         button.layer.cornerRadius = 22
         button.backgroundColor = .systemBlue
+        button.addTarget(self, action: #selector(exportResultFunction), for: .touchUpInside)
         return button
     }()
     
@@ -76,8 +77,31 @@ class RoomPlanBaseViewController: UIViewController {
     @objc func doneButtonDidTappedAction() {
         if isScanning {
             stopSession()
+            return
         }
         closeButtonDidTappedAction()
+    }
+    
+    @objc func exportResultFunction() {
+        
+        let inputAlert = UIAlertController(title: "导出模型", message: "输入模型名称", preferredStyle: .alert)
+        
+        inputAlert.addTextField()
+        
+        let confirmAction = UIAlertAction(title: "确定", style: .default) { [unowned inputAlert] _ in
+            guard let textField = inputAlert.textFields?.first else {
+                return
+            }
+            let modelName = textField.text ?? "roomPlanScanModel"
+            self.exportRoomPlanModel(modelName: modelName)
+        }
+        
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel)
+        
+        inputAlert.addAction(confirmAction)
+        inputAlert.addAction(cancelAction)
+        
+        present(inputAlert, animated: true)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -100,6 +124,31 @@ class RoomPlanBaseViewController: UIViewController {
         isScanning = false
         roomCaptureView.captureSession.stop()
         exportButton.isEnabled = true
+    }
+    
+    func exportRoomPlanModel(modelName: String) {
+        do {
+            let destinationURL = USDZPathHelper.scanedModelPath(modelName: modelName)
+            
+            guard let destinationURL else {
+                return
+            }
+            
+            try finishedCapturedRoom?.export(to: destinationURL, exportOptions: .parametric)
+            
+            let activityVC = UIActivityViewController(activityItems: [destinationURL], applicationActivities: nil)
+            activityVC.modalPresentationStyle = .popover
+            
+            present(activityVC, animated: true, completion: nil)
+            if let popOver = activityVC.popoverPresentationController {
+                popOver.sourceView = view
+            }
+        } catch {
+            let action = UIAlertAction(title: "确定", style: .cancel)
+            let alertController = UIAlertController(title: "导出失败", message: error.localizedDescription, preferredStyle: .alert)
+            alertController.addAction(action)
+            self.present(alertController, animated: true)
+        }
     }
 
 }
