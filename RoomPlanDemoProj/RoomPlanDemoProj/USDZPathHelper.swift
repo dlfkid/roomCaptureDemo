@@ -24,13 +24,24 @@ class USDZPathHelper {
         do {
             let urls = try FileManager.default.contentsOfDirectory(atPath: documentDirectoryHome)
             for url in urls {
-                if url.contains(USDZPathHelper.kRoomPlanDefaultDir) {
-                    finalResults.append(url)
-                }
+                finalResults.append(url)
             }
         } catch {
             print("\(error)")
         }
         return finalResults
+    }
+    
+    public class func deleteScannedModelWithName(modelName: String, completion:(_ error: Error?) -> Void) {
+        guard let targetModel = scanedModelPath(modelName: modelName) else {
+            completion(nil)
+            return
+        }
+        do {
+            try FileManager.default.removeItem(at: targetModel.deletingPathExtension())
+            completion(nil)
+        } catch {
+            completion(error)
+        }
     }
 }

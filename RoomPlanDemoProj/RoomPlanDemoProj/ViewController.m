@@ -19,6 +19,8 @@
 
 @property (nonatomic, strong) UIButton *customRPButton;
 
+@property (nonatomic, strong) UIButton *exportListButton;
+
 @end
 
 @implementation ViewController
@@ -46,6 +48,11 @@
     [self.customRPButton setTitle:@"customRoomPlanUsage" forState:UIControlStateNormal];
     [self.customRPButton addTarget:self action:@selector(customRPButtonDidTappedButton:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.customRPButton];
+    
+    self.exportListButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    [self.exportListButton setTitle:@"export scanned models" forState:UIControlStateNormal];
+    [self.exportListButton addTarget:self action:@selector(exportListButtonDidTappedAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.exportListButton];
     
 //    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
 //        make.centerX.mas_equalTo(self.view.mas_centerX);
@@ -79,6 +86,7 @@
     self.descriptionTextView.pinObjc.belowOfAligned(self.titleLabel, HorizontalAlignCenter).marginTop(edgeMargin).height(120).widthOf(self.view).layout();
     self.basicRPButton.pinObjc.belowOfAligned(self.descriptionTextView, HorizontalAlignCenter).marginTop(edgeMargin).sizeToFit().layout();
     self.customRPButton.pinObjc.belowOfAligned(self.basicRPButton, HorizontalAlignCenter).marginTop(edgeMargin).sizeToFit().layout();
+    self.exportListButton.pinObjc.belowOfAligned(self.customRPButton, HorizontalAlignCenter).marginTop(edgeMargin).sizeToFit().layout();
 }
 
 - (NSString *)roomPlanDescriptionText {
@@ -93,6 +101,10 @@
 
 - (void)customRPButtonDidTappedButton:(UIButton *)sender {
     [RoomPlanRouter routeToRoomPlanCustomViewControllerWithCurrentController:self];
+}
+
+- (void)exportListButtonDidTappedAction:(UIButton *)sender {
+    [RoomPlanRouter routeToCachedRoomPlanScanResultsWithCurrentController:self];
 }
 
 @end
