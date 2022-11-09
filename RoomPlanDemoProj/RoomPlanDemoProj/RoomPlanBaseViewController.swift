@@ -79,7 +79,15 @@ class RoomPlanBaseViewController: UIViewController {
             stopSession()
             return
         }
-        closeButtonDidTappedAction()
+        let alertController = UIAlertController(title: "Finished", message: "Your captured model is ready, you wanna quit with out exporting it?", preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "OK", style: .default) { action in
+            self.closeButtonDidTappedAction()
+        }
+        let cancelAction = UIAlertAction(title: "cancel", style: .cancel)
+        alertController.addAction(cancelAction)
+        alertController.addAction(alertAction)
+        
+        present(alertController, animated: true)
     }
     
     @objc func exportResultFunction() {
